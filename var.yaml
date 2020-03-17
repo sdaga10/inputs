@@ -1,0 +1,95 @@
+#### Subscription###############################
+
+username: 'pkvinay'
+password: '09@winner'
+pool_id: '8a85f99b6977b7c0016981b785590a34'
+
+#### undercloud configuration parameters to change####
+
+undercloud_hostname: 'undercloudauto.icdsbuild.net'
+#local_ip: '10.171.4.67/26'
+#undercloud_ip: '10.171.4.67'
+#undercloud_public_host: '10.171.4.67'
+#undercloud_admin_host: '10.171.4.67'
+undercloud_local_ip: '10.171.4.67/26'
+undercloud_ntp_servers: '10.171.138.164'
+overcloud_domain_name: 'icdsbuild.net'
+cidr: '10.171.4.64/26'
+dhcp_start: '10.171.4.84'
+dhcp_end: '10.171.4.100'
+inspection_iprange: '10.171.4.101,10.171.4.120'
+gateway: '10.171.4.65'
+#subnet_cidr: '26'
+
+####instackenv json file prep########
+instack:
+      - name: controller 1st 
+        addr: 'ac:1f:6b:58:bf:4e'
+        name: 'controller01.icdsbuild.net'
+        pass: 'Welcome!23'
+        ip: '10.171.138.160'
+        profile: control
+
+      - name:  compute 1st  
+        addr: 'ac:1f:6b:0a:a8:66'
+        name: 'compute01.icdsbuild.net'
+        pass: 'Welcome!23'
+        ip: '10.171.138.170'
+        profile: compute
+
+      - name: ceph 1st   
+        addr: 'ac:1f:6b:0b:46:96'
+        name: 'ceph01.icdsbuild.net'
+        pass: 'Welcome!23'
+        ip: '10.171.138.184'
+        profile: ceph-storage
+
+      - name: ceph 2nd
+        addr: 'ac:1f:6b:0b:3d:66'
+        name: 'ceph02.icdsbuild.net'
+        pass: 'Welcome!23'
+        ip: '10.171.138.135'
+        profile: ceph-storage
+
+      - name: ceph 3rd
+        addr: 'ac:1f:6b:0e:0a:50'
+        name: 'ceph03.icdsbuild.net'
+        pass: 'Welcome!23'
+        ip: '10.171.138.183'
+        profile: ceph-storage
+
+####Overcloud prep files inputs####
+
+pushdestination: '10.171.4.67:8787'
+ControllerCount: '1'
+ComputeCount: '1'
+CephStorageCount: '3'
+
+####Network data file prep inputs#########
+storage_ip_subnet: '52.117.140.208/28'
+storage_vlan_id: '2096'
+storage_allocation_pools_start: '52.117.140.210'
+storage_allocation_pools_end: '52.117.140.222'
+
+StorageMgmt_ip_subnet: '52.117.185.128/28'
+StorageMgmt_vlan_id: '2098'
+StorageMgmt_allocation_pools_start: '52.117.185.130'
+StorageMgmt_allocation_pools_end: '52.117.185.142'
+
+InternalApi_ip_subnet: '150.238.18.80/28'
+InternalApi_vlan_id: '1959'
+InternalApi_allocation_pools_start: '150.238.18.82'
+InternalApi_allocation_pools_end: '150.238.18.94'
+
+Tenant_subnet_ip: '52.117.186.176/28'
+Tenant_vlan_id: '2106'
+Tenant_allocation_pools_start: '52.117.186.178'
+Tenant_allocation_pools_end: '52.117.186.190'
+
+External_subnet_ip: '150.238.25.192/26'
+External_vlan_id: '1728'
+External_allocation_pools_start: '150.238.25.194'
+External_allocation_pools_end: '150.238.25.206'
+gateway_ip: '150.238.25.193'
+
+pubkey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTd9u7ynOyulmLsdAEG7ZAo3+rizznRCHJIioagdOhIH/8tDBNaeBTsGHoA+VKPl1PGAcrebC7mTjidIB/xqqIRYMS/a0xC3y71kXqdhRUuc2TRLcI2rRaDXGB4VN1vYOeyvAMbY5wX4nvyFD1GttMtDNLsL3p1HJWUlbhDEVsRgB/+X70lXtzrcgxCHnzOzuI2V2tCtlzGENKCswkvOE+rkWCdS2wYSouQ9WNgP5gb3r0B+iO7RoHry1Zut094XO/pX71SUDtyZ8WP2cZR/6GgbLQ+Gd/+Lwd7ISH/OzAalKwmWhEcRirFw/OfTl5b04WEVjlQPisYWsvUeFSvP/R root@ansible.example.com
